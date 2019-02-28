@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="row"><h2 style="margin-top: 5px;margin-left: 20px">Подбор масла</h2></div>
+    <hr style="margin: 0">
+    <div class="row">
+        <ul class="list-group list-group-flush" style="width: 100%;">
+        {% for model in spisok %}
+        {%  if model.url %}
+            <li class="list-group-item list-group-item-action">
+
+                    <a href="{{ model.url }}" style="color: black"><div>
+                        {{ model.name }}
+                    </div></a>
+
+            </li>
+            {% endif %}
+            {%  if not model.url %}
+{#                <h5 style="margin-top: 5px;margin-left: 30px">Рекомендуемое масло для</h5>#}
+{#                    {% for info in model %}#}
+{#                        <h5 style="margin-top: 2px;margin-left: 20px">{{ info }}</h5>#}
+{#                    {% endfor %}#}
+                    {% for info in model %}
+                        {% if ',' in info %}
+                        <h5 style="margin-top: 2px;margin-left: 20px">Рекомендуемое масло для {{ info }}:</h5>
+                        {% endif %}
+                        {% if ',' not in info %}
+                        <h5 style="margin-top: 2px;margin-left: 20px">{{ info }}</h5>
+                        {% endif %}
+                    {% endfor %}
+
+            {% endif %}
+        {% endfor %}
+        </ul>
+    </div>
+
+    <div style="display: flex; justify-content: center">
+        <a href="/katalog.html" class="btn btn-primary"><span class="glyphicon glyphicon-tint"></span> В начало</a>
+    </div>
+
+
+{% endblock %}
