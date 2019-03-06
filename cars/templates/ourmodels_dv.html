@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="row"><h2 style="margin-top: 5px;margin-left: 20px">Подбор дворников</h2></div>
+    <hr style="margin: 0">
+    <div class="row">
+        <ul class="list-group list-group-flush" style="width: 100%;">
+        {% for model in spisok %}
+        {%  if model.url %}
+            <li class="list-group-item list-group-item-action">
+
+                    <a href="{{ model.url }}" style="color: black"><div>
+                        {{ model.name }}
+                    </div></a>
+
+            </li>
+            {% endif %}
+            {%  if not model.url %}
+
+                        {% if 'Комплект' not in model %}
+                        <h5 style="margin-top: 2px;margin-left: 20px">Рекомендуемые дворники для {{ model }}:</h5>
+                        {% endif %}
+                        {% if 'Комплект' in model %}
+                        <h6 style="margin-top: 10px;margin-left: 30px">{{ model }}</h6>
+                        {% endif %}
+
+            {% endif %}
+        {% endfor %}
+        </ul>
+    </div>
+
+    <div style="display: flex; justify-content: center">
+        <a href="/katalog_dv.html" class="btn btn-block btn-primary" style="background-color: #2c2c2c; border-color: #2c2c2c;"><span class="glyphicon glyphicon-tint"></span> В начало</a>
+    </div>
+
+
+{% endblock %}
