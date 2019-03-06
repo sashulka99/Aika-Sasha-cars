@@ -8,11 +8,11 @@
         <ul class="list-group list-group-flush" style="width: 100%;">
         {% for model in spisok %}
         {%  if model.url %}
-            <li class="list-group-item list-group-item-action">
+            <li class="list-group-item list-group-item-action" onclick="window.location='{{ model.url }}'">
 
-                    <a href="{{ model.url }}" style="color: black"><div>
+                    <div>
                         {{ model.name }}
-                    </div></a>
+                    </div>
 
             </li>
             {% endif %}
@@ -31,7 +31,7 @@
     </div>
 
     <div style="display: flex; justify-content: center">
-        <a href="/katalog_dv.html" class="btn btn-block btn-primary" style="background-color: #2c2c2c; border-color: #2c2c2c;"><span class="glyphicon glyphicon-tint"></span> В начало</a>
+        <a href="/" class="btn btn-block btn-primary" style="background-color: #2c2c2c; border-color: #2c2c2c;"><span class="glyphicon glyphicon-tint"></span> В начало</a>
     </div>
 
 
