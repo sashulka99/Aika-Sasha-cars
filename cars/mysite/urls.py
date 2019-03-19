@@ -21,6 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('katalog_oil.html/', views.katalog_oil),
     path('katalog_dv.html/', views.katalog_dv),
+    path('katalog_fif.html/', views.katalog_fif),
     path('feedback.html/', views.feedback),
     path('about_pr.html/', views.about_pr),
     path('<str:path>/', views.ourmodels),
